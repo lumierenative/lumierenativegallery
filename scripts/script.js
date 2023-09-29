@@ -186,3 +186,19 @@ window.addEventListener("load", function() {
 
 
 
+
+document.addEventListener("DOMContentLoaded", function () {
+  const isAutoRedirect = window.performance.getEntriesByType("navigation")[0].type === "navigate" && window.location.hash === "#news";
+
+  if (isAutoRedirect) {
+    document.getElementById("popup-container").style.display = "flex";
+
+    document.getElementById("close-popup").addEventListener("click", function () {
+      document.getElementById("popup-container").style.display = "none";
+    });
+  }
+});
+
+
+
+
