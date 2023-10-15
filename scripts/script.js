@@ -99,6 +99,7 @@ function closeLightBox() {
 }
 lightBoxContainer.addEventListener("click", closeLightBox);
 
+
 /*
 function verificarConexao() {
     if (navigator.onLine) {
