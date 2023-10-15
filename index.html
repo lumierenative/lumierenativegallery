@@ -33,10 +33,13 @@
         <div id="menu">
 
             <ul class="">
-                <li><a href="#apresentation" class="a-menu">Início</a></li>
-                <li><a href="#products" class="a-menu">Produtos</a></li>
-                <li><a href="#news" class="a-menu">Novidades</a></li>
-                <li><a href="#contact" class="a-menu">Contato</a></li>
+                <li class="navbar-li zoom-element"><a href="#apresentation" class="a-menu">Início</a></li>
+
+                <li class="navbar-li zoom-element"><a href="#products" class="a-menu">Produtos</a></li>
+                
+                <li class="navbar-li zoom-element"><a href="#news" class="a-menu">Novidades</a></li>
+                
+                <li class="navbar-li zoom-element"><a href="#contact" class="a-menu">Contato</a></li>
             </ul>
 
         </div>
@@ -66,8 +69,11 @@
                     </div>
                 </div>
 
+                
+                
 
                 <div class="apresentation-buy-div">
+                    
                     <a href="https://shopee.com.br/" target="_blank" rel="external">
                         <button id="apresentation-botaoRedirecionar" class="apresentation-buy-button">Quer saber mais?
                             Clique e conheça nossa loja!</button>
@@ -166,12 +172,12 @@
 
                 <input type="radio" class="tabs__radio" name="tabs-example" id="tab1" checked>
 
-                <label for="tab1" class="tabs__label">Produto 1</label>
+                <label for="tab1" class="tabs__label">Sabonetes</label>
 
 
                 <div class="tabs__content">
 
-                    <h1 class="tabTitle">Produto 1</h1>
+                    <h1 class="tabTitle">Sabonetes</h1>
                     <div id="product-tab2" class="gallery-container">
 
                         <div class="gallery-item" data-index="1">
@@ -209,11 +215,11 @@
 
                 <input type="radio" class="tabs__radio" name="tabs-example" id="tab2" checked>
 
-                <label for="tab2" class="tabs__label">Produto 2</label>
+                <label for="tab2" class="tabs__label">Geleias de banho</label>
 
                 <div class="tabs__content">
 
-                    <h1 class="tabTitle">Produto 2</h1>
+                    <h1 class="tabTitle">Geleias de banho</h1>
                     <div id="product-tab2" class="gallery-container">
 
                         <div class="gallery-item" data-index="1">
@@ -241,11 +247,11 @@
 
                 <input type="radio" class="tabs__radio" name="tabs-example" id="tab3" checked>
 
-                <label for="tab3" class="tabs__label">Produto 3</label>
+                <label for="tab3" class="tabs__label">Esfoliantes</label>
 
                 <div class="tabs__content">
 
-                    <h1 class="tabTitle">Produto 3</h1>
+                    <h1 class="tabTitle">Esfoliantes</h1>
                     <div id="product-tab2" class="gallery-container">
 
                         <div class="gallery-item" data-index="1">
@@ -278,11 +284,11 @@
 
                 <input type="radio" class="tabs__radio" name="tabs-example" id="tab4" checked>
 
-                <label for="tab4" class="tabs__label">Produto 4</label>
+                <label for="tab4" class="tabs__label">Velas aromáticas</label>
 
                 <div class="tabs__content">
 
-                    <h1 class="tabTitle">Produto 4</h1>
+                    <h1 class="tabTitle">Velas aromáticas</h1>
                     <div id="product-tab2" class="gallery-container">
 
                         <div class="gallery-item" data-index="1">
@@ -325,9 +331,8 @@
                 <div class="newsletter-testee">
                     <h1 class="pageTitle title newsletter-title">Inscreva-se na newsletter Lumière Native</h1>
 
-                    <p class="newsletter-text">Psiu... Quer receber novidades em primeira mão à respeito de produtos 1,
-                        produtos 2, produtos 3 e produtos 4? Cadastre-se na nossa newsletter e receba tudo em primeira
-                        mão, desde dicas, informações sobre novos produtos e ofertas exclusivas!</p>
+                    <p class="newsletter-text">Psiu... Quer receber novidades em primeira mão à respeito dos sabonetes,
+                        geleias de banho, esfoliantes, velas aromáticas e muito mais? Cadastre-se na nossa newsletter e receba tudo em primeira mão, desde dicas, informações sobre novos produtos e ofertas exclusivas!</p>
 
                     <div class="formulario">
 
@@ -338,7 +343,7 @@
                             
                             <input type="hidden" name="_subject" value="NOVA INSCRIÇÃO NA NEWSLETTER!">
 
-                            <input type="hidden" name="_next" value="https://lumierenative.github.io/lumierenativegallery/#news"/>
+                            <input type="hidden" name="_next" value="http://127.0.0.1:5500/index.html#news" />
 
                             <input type="hidden" name="_captcha" value="false" />
 
@@ -347,23 +352,25 @@
                             <div class="input-group input-name">
                                 <label for="nome" class="label-text">Nome:</label>
 
-                                <input type="text" id="nome" name="nome" required placeholder="Digite o seu nome"
-                                    maxlength="30" oninput="nameValidate()" class="newsletter-input" required
-                                    oninvalid="this.setCustomValidity('Por favor, preencha este campo.')"
-                                    onchange="try{setCustomValidity('')}catch(e){}">
-
+                                <input type="text" id="nome" name="nome" placeholder="Digite o seu nome" maxlength="35" class="newsletter-input" required>
+                                <br>
+                                <span id="nomeErro"></span>
                             </div>
+                            
+                          
 
                             <div class="input-group input-email">
                                 <label for="email" class="label-text">Email:</label>
 
                                 <input type="email" id="email" name="email" required
-                                    placeholder="Digite o seu melhor e-mail" oninput="emailValidate()"
+                                    placeholder="Digite o seu melhor e-mail"
                                     class="newsletter-input">
+                                <br>
+                                <span id="emailErro"></span>    
                                 
                             </div>
 
-                            <input type="submit" value="Enviar">
+                            <input type="submit" id="botaoSubmit" value="Enviar" disabled>
                         </form>
                     </div>
 
@@ -511,13 +518,14 @@
                     id="ancoraFooter" title="Todos os direitos reservados à Lumière Native©" target="_blank"
                     rel="external">Todos os direitos reservados</a>
             </p>
-            <p>website development by <a href="https://www.linkedin.com/in/thauan-de-oliveira-ramos-396b66224"
+            <p class="footer-development">website development by <a href="https://www.linkedin.com/in/thauan-de-oliveira-ramos-396b66224"
                     id="ancoraFooter" title="Desenvolvido por Thauan Oliveira" target="_blank" rel="external">Thauan
                     Oliveira</a></p>
         </div>
     </footer>
 
     <script src="scripts/script.js"></script>
+    <script src="scripts/regex.js"></script>
 </body>
 
 </html>
